@@ -1,0 +1,130 @@
+<head>
+  <meta charset="utf-8">
+    <title>Progressive Web Application</title>
+    <meta http-equiv=X-UA-Compatible content="IE=edge">
+    <meta name=description content="This web application will work in offline, has a splash screen add to home screen etc,.">
+    <meta name=viewport content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="theme-color" content="#0288d1">
+    <meta name="msapplication-TileColor" content="#0288d1">
+    <meta name="msapplication-TileImage" content="./images/icons/mstile-150x150.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Progressive Web Application">
+    <meta name="application-name" content="Progressive Web Application">
+    <link rel="apple-touch-icon" href="./images/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="./images/icons/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="./images/icons/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="./manifest.json">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:200,300,400,500,700">
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+
+<body>
+  <h1>Welcome to Meteor!</h1>
+
+  {{> hello}}
+  {{> pwa}}
+  
+</body>
+
+<template name="hello">
+  <button>Click Me</button>
+  <p>You've pressed the button {{counter}} times.</p>
+</template>
+
+
+
+<template name="info">
+  <h2>Learn Meteor!</h2>
+  <ul>
+    <li><a href="https://www.meteor.com/try" target="_blank">Do the Tutorial</a></li>
+    <li><a href="http://guide.meteor.com" target="_blank">Follow the Guide</a></li>
+    <li><a href="https://docs.meteor.com" target="_blank">Read the Docs</a></li>
+    <li><a href="https://forums.meteor.com" target="_blank">Discussions</a></li>
+  </ul>
+</template>
+
+
+<template name="pwa">
+  <div class="app app__layout">
+    <header>
+      <span class="header__icon">
+        <svg class="menu__icon no--select" width="24px" height="24px" viewBox="0 0 48 48" fill="#fff">
+          <path d="M6 36h36v-4H6v4zm0-10h36v-4H6v4zm0-14v4h36v-4H6z"></path>
+        </svg>
+      </span>
+
+      <span class="header__title no--select">Progressive Web App</span>
+    </header>
+
+    <div class="menu">
+      <div class="menu__header"></div>
+      <ul class="menu__list">
+        <li><a target="_blank" rel="noopener" href="https://github.com/gokulkrishh">Author</a></li>
+        <li><a target="_blank" rel="noopener" href="https://github.com/gokulkrishh/demo-progressive-web-app">Source</a></li>
+        </ul>
+    </div>
+    <div class="menu__overlay"></div>
+
+    <div class="app__content">
+      <h3>Push Notification: </h3>
+      <p class="custom__button">
+        <input id="turn-on-notification" type="checkbox" hidden="hidden" class="custom__input" data-checked="">
+        <label for="turn-on-notification" class="custom__checkbox"></label>
+        <button class="no--select send-push" disabled>Send Push Notification</button>
+      </p>
+
+      <h3>Fetch API: </h3>
+
+      <div class="card">
+        <div class="card__spinner"></div>
+        <div class="card__container">
+          <img alt="avatar" class="card__img">
+          <p class="card__title"></p>
+          <p class="card__desc"></p>
+          <p class="card__temp">
+            <b>Company: </b><span></span>
+          </p>
+          <p class="card__following"><b>Following: </b><span></span></p>
+          <p class="card__followers"><b>Followers: </b><span></span></p>
+          <div class="add__to-card">
+            <input type="text" class="add__input" placeholder="Enter a github username" />
+            <button class="add__btn">Add</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="add__card">
+        <b><i>Try BG Sync in <a href="https://www.google.com/chrome/browser/canary.html" target="_blank" rel="noopener">Chrome Canary</a> or Chrome in Android</i></b>
+        <h3>Enable OneTime BG Sync:
+          <span class="bg-sync__text" hidden>Registered</span>
+          <p class="custom__button custom__button-bg">
+            <button class="turn-on-sync">Register</button>
+          </p>
+        </h3>
+        <p>In chrome dev channel, Android</p>
+        <ul>
+          <li><b>Step 1:</b> Go offline.</li>
+          <li><b>Step 2:</b> Register BG Sync from above register button.</li>
+          <li><b>Step 3:</b> Enter a git username and click add.</li>
+          <li><b>Step 4:</b> Go online and sync will be triggered when user is gets connectivity and card will be updated.</li>
+        </ul>
+          <p>or Emulate via chrome devTools</p>
+        <ul>
+          <li><b>Step 1: </b> Go offline and register BG Sync.</li>
+          <li><b>Step 2: </b>Go to application tab in chrome canary devTools, navigate to serviceWorker tab.</li>
+          <li><b>Step 3: </b>Go online and click `sync` button to emulate sync.</li>
+          <li><b>Step 4: </b>Above card will be updated as per your input.</li>
+        </ul>
+      </div>
+
+      <div class="card__spinner"></div>
+
+      <div class="snackbar">
+        <p class="snackbar__msg no--select"></p>
+        <div class="snackbar__action no--select">hide</div>
+      </div>
+    </div>
+  </div>
+</template>  
+
